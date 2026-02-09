@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Philips India – Air Purifier Case Dashboard</title>
+
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+      color: #222;
+    }
+
+    header {
+      background: #0b5ed7;
+      color: white;
+      padding: 25px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+    }
+
+    header p {
+      margin-top: 8px;
+      opacity: 0.9;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      padding: 16px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .insights {
+      background: white;
+      margin: 0 20px 20px 20px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .insights h2 {
+      margin-top: 0;
+    }
+
+    .insights ul {
+      line-height: 1.8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 12px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Philips India: Launch of New Air Purifiers</h1>
+  <p>Concise interactive dashboard summarising the case study</p>
+</header>
+
+<section class="grid">
+
+  <div class="card">
+    <h3>Philips India Financial Performance (₹ Billion)</h3>
+    <canvas id="financialChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>Personal Health Segment Revenue</h3>
+    <canvas id="healthRevenueChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>Indian Residential Air Purifier Market Growth</h3>
+    <canvas id="marketGrowthChart"></canvas>
+  </div>
+
+  <div class="card">
+    <h3>Competitive Positioning: Price vs Performance</h3>
+    <canvas id="competitionChart"></canvas>
+  </div>
+
+</section>
+
+<section class="insights">
+  <h2>What the Numbers Tell Us</h2>
+  <ul>
+    <li>The residential air purifier market is expanding rapidly, nearly doubling from 2020 to 2023.</li>
+    <li>Philips India grew its personal health revenue even during COVID, showing brand resilience.</li>
+    <li>Despite strong product performance, profits declined — indicating cost pressure and competition.</li>
+    <li>Philips sits in a mid-premium zone: better performance than budget brands, cheaper than Dyson.</li>
+    <li>The core challenge is not product capability, but seasonal demand and low pan-India awareness.</li>
+  </ul>
+</section>
+
+<footer>
+  Source: Philips India – Launch of New Air Purifiers (Ivey Case Study)
+</footer>
+
+<script>
+  // Financial Performance
+  new Chart(document.getElementById("financialChart"), {
+    type: "bar",
+    data: {
+      labels: ["2018–19", "2019–20"],
+      datasets: [
+        {
+          label: "Gross Income",
+          data: [43.386, 45.764]
+        },
+        {
+          label: "Profit After Tax",
+          data: [1.760, 1.515]
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        tooltip: { mode: "index" }
+      }
+    }
+  });
+
+  // Personal Health Segment Revenue
+  new Chart(document.getElementById("healthRevenueChart"), {
+    type: "line",
+    data: {
+      labels: ["2018–19", "2019–20"],
+      datasets: [{
+        label: "Revenue (₹ Billion)",
+        data: [10.997, 11.634],
+        tension: 0.35
+      }]
+    },
+    options: {
+      responsive: true
+    }
+  });
+
+  // Market Growth
+  new Chart(document.getElementById("marketGrowthChart"), {
+    type: "line",
+    data: {
+      labels: ["2016","2017","2018","2019","2020F","2021F","2022F","2023F"],
+      datasets: [{
+        label: "Market Size (US$ Million)",
+        data: [6.12,8.33,10.86,14.14,18.34,23.7,30.48,38.99],
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true
+    }
+  });
+
+  // Competition Chart
+  new Chart(document.getElementById("competitionChart"), {
+    type: "scatter",
+    data: {
+      datasets: [
+        { label: "Philips", data: [{ x: 17500, y: 330 }] },
+        { label: "Dyson", data: [{ x: 27900, y: 313 }] },
+        { label: "Honeywell", data: [{ x: 12290, y: 250 }] },
+        { label: "Xiaomi", data: [{ x: 7999, y: 350 }] }
+      ]
+    },
+    options: {
+      scales: {
+        x: {
+          title: { display: true, text: "Price (₹)" }
+        },
+        y: {
+          title: { display: true, text: "CADR (m³/h)" }
+        }
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
