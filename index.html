@@ -2,125 +2,106 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<title>Philips India – Air Purifiers | Case Story</title>
+<title>Philips India – Air Purifiers | Strategy Case Microsite</title>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --bg:#f6f8fc;
-  --glass:rgba(255,255,255,0.82);
+  --bg:#f4f7fc;
+  --glass:rgba(255,255,255,0.85);
   --ink:#0f172a;
   --muted:#64748b;
   --accent:#2563eb;
-  --accent-soft:#e0e7ff;
+  --accent2:#22c55e;
+  --soft:#e0e7ff;
 }
 
 *{box-sizing:border-box}
-
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth}
 
 body{
   margin:0;
   font-family:'Inter',sans-serif;
   background:
-    radial-gradient(1200px 700px at 5% -10%, #e0e7ff, transparent),
-    radial-gradient(900px 600px at 95% 10%, #dbeafe, transparent),
+    radial-gradient(1400px 800px at 5% -10%, #e0e7ff, transparent),
+    radial-gradient(1200px 700px at 95% 15%, #dcfce7, transparent),
     var(--bg);
   color:var(--ink);
-  line-height:1.65;
 }
 
-/* ---------- GLOBAL ---------- */
-section{
-  padding:0 24px;
-}
-
+/* ---------- UTIL ---------- */
 .container{
-  max-width:1200px;
+  max-width:1440px;
   margin:auto;
+  padding:0 28px;
 }
 
 .reveal{
   opacity:0;
-  transform:translateY(40px);
-  transition:all .8s ease;
+  transform:translateY(50px);
+  transition:all .9s ease;
 }
-
-.reveal.visible{
-  opacity:1;
-  transform:none;
-}
+.reveal.visible{opacity:1;transform:none}
 
 /* ---------- HERO ---------- */
 .hero{
-  padding:130px 24px 100px;
+  padding:140px 0 120px;
 }
-
 .hero h1{
-  font-size:clamp(42px,5vw,56px);
-  font-weight:800;
-  max-width:1000px;
-  line-height:1.1;
+  font-size:clamp(46px,5vw,64px);
+  font-weight:900;
+  max-width:1100px;
+  line-height:1.05;
 }
-
 .hero p{
-  font-size:clamp(18px,2vw,22px);
-  max-width:820px;
+  font-size:22px;
+  max-width:900px;
   color:var(--muted);
-  margin-top:26px;
+  margin-top:28px;
 }
 
-/* ---------- SECTION HEADERS ---------- */
+/* ---------- SECTIONS ---------- */
 .section{
-  margin:110px auto;
+  margin:130px 0;
 }
-
 .section h2{
-  font-size:clamp(32px,4vw,40px);
-  margin-bottom:14px;
+  font-size:clamp(34px,4vw,46px);
+  margin-bottom:16px;
 }
-
 .section p.lead{
-  font-size:18px;
-  max-width:820px;
+  font-size:19px;
+  max-width:900px;
   color:var(--muted);
 }
 
-/* ---------- CARDS ---------- */
+/* ---------- GRID ---------- */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-  gap:32px;
-  margin-top:50px;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:36px;
+  margin-top:60px;
 }
 
+/* ---------- CARD ---------- */
 .card{
   background:var(--glass);
-  backdrop-filter:blur(16px);
-  border-radius:22px;
-  padding:32px;
-  box-shadow:
-    0 30px 60px rgba(15,23,42,.15),
-    inset 0 1px 0 rgba(255,255,255,.7);
-  transition:transform .4s ease, box-shadow .4s ease;
+  backdrop-filter:blur(18px);
+  border-radius:26px;
+  padding:36px;
+  box-shadow:0 35px 70px rgba(15,23,42,.18);
+  transition:all .45s ease;
 }
-
 .card:hover{
-  transform:translateY(-10px) scale(1.01);
-  box-shadow:
-    0 40px 80px rgba(15,23,42,.22),
-    inset 0 1px 0 rgba(255,255,255,.8);
+  transform:translateY(-12px);
+  box-shadow:0 55px 110px rgba(15,23,42,.28);
 }
 
 .card h3{
   margin-top:0;
-  font-size:22px;
+  font-size:24px;
 }
-
 .card p{
   font-size:16px;
   color:var(--muted);
@@ -128,54 +109,53 @@ section{
 
 /* ---------- KPI ---------- */
 .kpi{
-  font-size:42px;
-  font-weight:800;
+  font-size:48px;
+  font-weight:900;
   color:var(--accent);
 }
-
-.kpi-label{
+.kpi span{
+  display:block;
   font-size:14px;
   color:var(--muted);
+  margin-top:6px;
 }
 
 /* ---------- INSIGHT ---------- */
 .insight{
-  margin-top:26px;
-  padding:18px 20px;
-  background:var(--accent-soft);
-  border-left:4px solid var(--accent);
-  border-radius:10px;
+  margin-top:28px;
+  padding:22px 24px;
+  background:var(--soft);
+  border-left:5px solid var(--accent);
+  border-radius:12px;
   font-size:16px;
 }
 
-/* ---------- DIVIDER ---------- */
-.divider{
-  height:1px;
-  background:linear-gradient(to right, transparent, #c7d2fe, transparent);
-  margin:120px 0;
-}
-
-/* ---------- STRATEGY BLOCK ---------- */
-.strategy{
+/* ---------- DARK BAND ---------- */
+.dark{
   background:#020617;
   color:white;
-  padding:120px 24px;
+  padding:140px 0;
 }
+.dark p{opacity:.9}
 
-.strategy h2{
-  font-size:clamp(34px,4vw,44px);
+/* ---------- CHART CARD ---------- */
+.chart-card{
+  background:var(--glass);
+  border-radius:26px;
+  padding:32px;
+  box-shadow:0 40px 80px rgba(15,23,42,.2);
+  transition:transform .4s ease, box-shadow .4s ease;
 }
-
-.strategy p{
-  font-size:19px;
-  max-width:860px;
-  opacity:.9;
+.chart-card:hover{
+  transform:scale(1.08);
+  box-shadow:0 70px 140px rgba(15,23,42,.35);
+  z-index:5;
 }
 
 /* ---------- FOOTER ---------- */
 footer{
   text-align:center;
-  padding:60px 20px;
+  padding:80px 20px;
   font-size:14px;
   color:var(--muted);
 }
@@ -187,189 +167,144 @@ footer{
 <!-- HERO -->
 <section class="hero container reveal">
   <h1>
-    Philips brought hospital-grade air purification into Indian homes.
-    <br>Indian homes still buy it only when smog becomes visible.
+    India breathes polluted air all year.  
+    Indian homes buy air purifiers for only three months.
   </h1>
   <p>
-    This case story explains why a fast-growing market, superior technology,
-    and a trusted health brand still fail to create year-round residential adoption —
-    and what must change.
+    This case microsite explains the structural, behavioural, and strategic
+    reasons behind this mismatch — and how Philips India can fix it.
   </p>
 </section>
 
 <!-- PROBLEM -->
 <section class="section container reveal">
-  <h2>The Real Problem Is Not Pollution</h2>
+  <h2>The Real Problem</h2>
   <p class="lead">
-    Air pollution in India is chronic and invisible indoors.
-    Consumer action is episodic, reactive, and driven by fear — not habit.
+    The challenge is not pollution levels or technology availability.
+    It is the absence of preventive health behaviour in Indian households.
   </p>
 
   <div class="grid">
     <div class="card">
-      <div class="kpi">22 / 30</div>
-      <div class="kpi-label">Most polluted global cities are in India</div>
+      <div class="kpi">22 / 30<span>Most polluted global cities</span></div>
     </div>
     <div class="card">
-      <div class="kpi">10×</div>
-      <div class="kpi-label">Indoor pollution vs outdoor levels</div>
+      <div class="kpi">10×<span>Indoor pollution vs outdoor</span></div>
     </div>
     <div class="card">
-      <div class="kpi">3 months</div>
-      <div class="kpi-label">Winter-only buying window</div>
+      <div class="kpi">3 months<span>Winter-only demand window</span></div>
     </div>
   </div>
 
   <div class="insight">
-    Consumers do not *feel* indoor pollution — therefore they do not
-    build preventive behaviour.
+    Pollution is invisible indoors. Consumers react to fear,
+    not long-term health risk.
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- WHY SEASONAL -->
+<!-- MARKET STRUCTURE -->
 <section class="section container reveal">
-  <h2>Why Demand Remains Seasonal & Regional</h2>
+  <h2>Market Structure Explains the Behaviour</h2>
   <p class="lead">
-    The residential air purifier market is constrained by perception,
-    geography, and misinformation — not income alone.
+    Air purifiers are a fast-growing category — but still dwarfed
+    by traditional air treatment products.
   </p>
 
   <div class="grid">
-    <div class="card">
-      <h3>Myth-Driven Thinking</h3>
-      <p>
-        Indoor air is assumed to be cleaner.
-        AC rooms are believed to be safe.
-        Pollution is treated as a winter event.
-      </p>
+    <div class="chart-card">
+      <h3>Air Treatment Products: Volume Reality</h3>
+      <canvas id="airTreatment"></canvas>
     </div>
-    <div class="card">
-      <h3>Geographic Triggering</h3>
-      <p>
-        Sales cluster in North India where smog is visible,
-        reported, and emotionally alarming.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Doctor-Led Purchase</h3>
-      <p>
-        Adoption spikes only after respiratory symptoms,
-        allergies, or medical advice.
-      </p>
+    <div class="chart-card">
+      <h3>Residential Air Purifier Market Growth</h3>
+      <canvas id="marketGrowth"></canvas>
     </div>
   </div>
 </section>
-
-<div class="divider"></div>
 
 <!-- PHILIPS ADVANTAGE -->
-<section class="section container reveal">
-  <h2>Why Philips Is Structurally Advantaged</h2>
-  <p class="lead">
-    Philips does not suffer from a product or credibility gap.
-    It suffers from a category-ownership gap.
-  </p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>Proven Health Technology</h3>
-      <p>
-        99.97% PM2.5 removal, virus filtration, real-time sensing,
-        app-based control.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Health Brand Trust</h3>
-      <p>
-        Successful repositioning from electronics
-        to health technology leader.
-      </p>
-    </div>
-    <div class="card">
-      <h3>Distribution & Service</h3>
-      <p>
-        Nationwide retail, e-commerce, and service
-        coverage across 200+ cities.
-      </p>
-    </div>
-  </div>
-
-  <div class="insight">
-    Philips wins on *logic* — but consumers buy on *mental shortcuts*.
-  </div>
-</section>
-
-<!-- STRATEGY -->
-<section class="strategy reveal">
-  <div class="container">
-    <h2>The Strategic Shift Required</h2>
-    <p>
-      Philips must stop selling air purifiers as a reaction to pollution
-      and start positioning them as everyday respiratory infrastructure —
-      like RO water purifiers or refrigerators.
+<section class="dark">
+  <div class="container reveal">
+    <h2>Why Philips Should Win</h2>
+    <p class="lead">
+      Philips is structurally advantaged across technology,
+      brand trust, and distribution.
     </p>
 
     <div class="grid">
       <div class="card">
-        <h3>From</h3>
-        <p>Seasonal smog protection</p>
+        <h3>Product Superiority</h3>
+        <p>
+          99.97% PM2.5 filtration, virus removal, smart sensing,
+          app & voice control across models.
+        </p>
       </div>
       <div class="card">
-        <h3>To</h3>
-        <p>Preventive daily health habit</p>
+        <h3>Health-Led Brand</h3>
+        <p>
+          Successful shift from electronics to health technology
+          reinforced by COVID-era relevance.
+        </p>
       </div>
       <div class="card">
-        <h3>Anchor</h3>
-        <p>Children, elderly, immunity, long-term safety</p>
+        <h3>Distribution Power</h3>
+        <p>
+          Presence across e-commerce, offline retail,
+          and service coverage in 200+ cities.
+        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DATA -->
+<!-- DATA JUSTIFICATION -->
 <section class="section container reveal">
-  <h2>Data That Supports the Narrative</h2>
+  <h2>Data That Justifies the Strategy Gap</h2>
   <p class="lead">
-    The numbers confirm that demand exists — adoption fails due to perception,
-    not market size or product quality.
+    The numbers show demand exists — but adoption is distorted
+    by price anchoring and mental positioning.
   </p>
 
   <div class="grid">
-    <div class="card">
-      <h3>Residential Market Growth</h3>
-      <canvas id="market"></canvas>
-    </div>
-    <div class="card">
+    <div class="chart-card">
       <h3>Philips India Financials</h3>
       <canvas id="finance"></canvas>
     </div>
-    <div class="card">
-      <h3>Price vs Performance</h3>
-      <canvas id="comp"></canvas>
+    <div class="chart-card">
+      <h3>Price vs Performance (CADR)</h3>
+      <canvas id="competition"></canvas>
+    </div>
+    <div class="chart-card">
+      <h3>Philips Product Line Differentiation</h3>
+      <canvas id="productLine"></canvas>
     </div>
   </div>
 </section>
 
 <footer>
-  Source: Philips India – Launch of New Air Purifiers (Ivey Business School) :contentReference[oaicite:0]{index=0}
+  Source: Philips India – Launch of New Air Purifiers (Ivey Business School) :contentReference[oaicite:1]{index=1}
 </footer>
 
 <script>
-/* ---------- SCROLL REVEAL ---------- */
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(e=>{
-    if(e.isIntersecting){
-      e.target.classList.add('visible');
-    }
-  });
+/* Scroll reveal */
+const obs=new IntersectionObserver(e=>{
+  e.forEach(i=>{if(i.isIntersecting)i.target.classList.add('visible')})
 },{threshold:.15});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
 
-document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+/* Charts */
+new Chart(airTreatment,{
+  type:'bar',
+  data:{
+    labels:['Air Purifiers','Cooling Equipment'],
+    datasets:[{
+      label:'Retail Volume 2019 (000 units)',
+      data:[185.7,53676.2],
+    }]
+  }
+});
 
-/* ---------- CHARTS ---------- */
-new Chart(market,{
+new Chart(marketGrowth,{
   type:'line',
   data:{
     labels:['2016','2017','2018','2019','2020F','2021F','2022F','2023F'],
@@ -392,7 +327,7 @@ new Chart(finance,{
   }
 });
 
-new Chart(comp,{
+new Chart(competition,{
   type:'scatter',
   data:{
     datasets:[
@@ -407,6 +342,17 @@ new Chart(comp,{
       x:{title:{display:true,text:'Price (₹)'}},
       y:{title:{display:true,text:'CADR'}}
     }
+  }
+});
+
+new Chart(productLine,{
+  type:'bar',
+  data:{
+    labels:['1000 Series','2000i Series','3000i Series'],
+    datasets:[
+      {label:'CADR (m³/h)',data:[300,330,400]},
+      {label:'Coverage (m²)',data:[36,39,48]}
+    ]
   }
 });
 </script>
